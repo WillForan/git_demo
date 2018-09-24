@@ -1,0 +1,92 @@
+* Git! Github!
+  2018 09 25
+* Take Home
+** Why use version control
+** 4 Essentials (9 commands)
+have typed in and understood 
+#+BEGIN_SRC bash
+git init   / git clone          # get
+git add                         # modify
+git commit -m "change note"     # modify
+git push   / git pull           # interact
+git status / git log / git diff # insepect
+#+END_SRC
+** Github accounts
+ * get/have one
+ * access  [[https://github.com/LabNeuroCogDevel/allscripts]]
+* Why
+   1. It was working!? What happened!
+   2. Collaborate (identify conflicts and changes)
+   3. At home and now the scripts are 3 hops away
+   4. backup
+* What
+  * (distributed) Version Control
+** options: *git*, mercurial, fossil, darcs  [centralized: svn, csv]
+
+   [[./img/vcs.png]]
+
+** stores history of changes in a smart way
+
+*** locally
+    [[./img/local_status.png]]
+*** online
+    [[https://github.com/LabNeuroCogDevel/allscripts/commit/87eaa7f19b1821b7ae7f5c867974b9265d986730][github diff]]
+    [[./img/githubdif.png]]
+
+* How
+** Git software (clients)
+  * git (command line interface)
+  * [[https://git-scm.com/download/gui/windows]]
+** Workflow - take home part 2
+   [[./img/workflow.png]]
+
+   [[./img/workflow_table.png]]
+   
+* Do it
+** This
+    1. open terminal
+    2. make a new directory and init a git repo
+    3. create  
+    4. stage (add) a file
+    5. commit
+    6. change, add, commit
+    7. view log
+** looks like
+#+BEGIN_SRC bash
+test -r ~/src/git_demo && rm -r $_ # just for me
+mkdir -p ~/src/git_demo
+cd $_                      
+# run git status after each command
+git init                # start git repo
+
+# round one - a new file
+echo "a\nb" > my_file   # modify a file
+git add my_file         # stage file
+git commit              # stage to HEAD
+
+# round two - change a file
+sed -i 's/a/c/' my_file # modify a file
+git diff                # whats changed
+git add my_file         # stage file
+git commit              # stage to HEAD
+
+git log                 # history
+#+END_SRC
+
+* Github
+ 1) login or make an account on [[github.com]]
+ 2) confirm or request access to the [[github.com/LabNeuroCogDevel]] group
+ 3) create a new repo (for 
+* Resources
+ (see wiki)
+ * https://www.authorea.com/users/5990/articles/17489-a-quick-introduction-to-version-control-with-git-and-github/_show_article
+ * https://try.github.io/ 
+* Not git
+
+** Colophon
+   emacs
+   * org mode
+   * leuven theme
+** Deja vu
+
+[[/Volumes/L/bea_res/Luna/Journal mtg/2017-04-27_IT_WF.txt]]
