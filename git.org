@@ -73,10 +73,14 @@ git commit              # stage to HEAD
 git log                 # history
 #+END_SRC
 
+
 * Github
  1) login or make an account on [[github.com]]
  2) confirm or request access to the [[github.com/LabNeuroCogDevel]] group
- 3) create a new repo (for 
+ 3) create a new repo (for your demo above)
+
+* Pull someone else's code
+
 * Resources
  (see wiki)
  * https://www.authorea.com/users/5990/articles/17489-a-quick-introduction-to-version-control-with-git-and-github/_show_article
