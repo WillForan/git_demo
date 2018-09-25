@@ -3,9 +3,13 @@
 #+OPTIONS:   toc:nil
 * Git
   * noun
-     1. British Slang. a foolish or contemptible person.
+    1. British Slang. a foolish or contemptible person.
 
   * "goddamn idiotic truckload of shit" -- source code readme file
+
+  * track changes for anything
+    
+
      
 
 * Take Home
@@ -23,10 +27,11 @@ git status / git log / git diff # insepect
 #+END_SRC
 
 
-** Github accounts
+** Github
  * get/have one
  * access  [[https://github.com/LabNeuroCogDevel/allscripts]]
  * fork and pull
+***  TODO fix all scripts
 
 
 * Why
@@ -37,6 +42,7 @@ git status / git log / git diff # insepect
    5. backup (git push)
    6. fast search (git grep)
 
+  * useful for any development
   * version control in shared storage is less exciting
     i.e. better for between labs than within a lab.
 
@@ -122,21 +128,24 @@ git grep b              # search files for 'b'
  * Files within git repo have visual indications.
    [[./img/git_integration.png]]
 
+*** TODO rstudio
+
 * Github
  1) login or make an account on [[https://www.github.com][github.com]]
  2) confirm or request access to the  group [[https://www.github.com/LabNeuroCogDevel][github.com/LabNeuroCogDevel]]
  3) create a new repo (for your demo above)
- 4) follow insturctions to sync github to your code
+ 4) follow instructions to sync github to your code
 
 
 * Fork
   [[./img/whatthefork.jpg]]
   
 collaborating with others on github
- 1) you fork repos to make them your own
+ 1) fork repo to make it your own
  2) clone your own repo
  3) make changes, commit, push
  4) make a pull request
+
 
 * Pull someone else's code
   Awesome paper publishes code on github. There's a bug and we can fix it!
@@ -156,6 +165,8 @@ collaborating with others on github
   When you want to send the orginal author your changes, you make a "pull request".
   [[./img/pullRequest.png]]
 
+*** TODO Finish
+  
 * Hub
 
 [[https://www.github.com/github/hub][hub]] makes this easier
@@ -167,11 +178,13 @@ git add ... git commit
 hub pull-request
 #+END_SRC
 
+
 * Finer points
   * Make commit messages useful: https://gist.github.com/matthewhudson/1475276
   * git does branching very well. ideal for experementing with radical code changes
-
-
+  * .git/ folder
+  * ssh keys for github
+   
 * Resources
  (see wiki)
  * https://www.authorea.com/users/5990/articles/17489-a-quick-introduction-to-version-control-with-git-and-github/_show_article
@@ -199,6 +212,10 @@ hub pull-request
   (global-set-key (kbd "C-c s") 'send-line)
      
      #+END_SRC
+
+*** TODO Fix above code with evil-select?
+*** TODO test org-present, consider beamer export
+
 ** Deja vu
 
 [[/Volumes/L/bea_res/Luna/Journal mtg/2017-04-27_IT_WF.txt]]
