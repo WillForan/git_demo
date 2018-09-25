@@ -230,8 +230,6 @@ git push origin master
  * https://try.github.io/
  * https://blogs.mathworks.com/community/2014/10/20/matlab-and-git/
 
-** TODO send out slack channel
-
 
 * Not git
 
