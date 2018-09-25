@@ -117,6 +117,11 @@ git grep b              # search files for 'b'
  * on Zeus, Hera, and Phillips, that's all there is.
 
 
+* Integration
+ * many editors have git support baked in (matlab, rstudio, vim, ...)
+ * Files within git repo have visual indications.
+   [[./img/git_integration.png]]
+
 * Github
  1) login or make an account on [[https://www.github.com][github.com]]
  2) confirm or request access to the  group [[https://www.github.com/LabNeuroCogDevel][github.com/LabNeuroCogDevel]]
@@ -172,6 +177,7 @@ hub pull-request
  * https://www.authorea.com/users/5990/articles/17489-a-quick-introduction-to-version-control-with-git-and-github/_show_article
  * https://berkeley-stat159-f17.github.io/stat159-f17/lectures/01-git/Git-Tutorial..html
  * https://try.github.io/
+ * https://blogs.mathworks.com/community/2014/10/20/matlab-and-git/
 
 
 * Not git
