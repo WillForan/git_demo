@@ -28,8 +28,8 @@ git status / git log / git diff # insepect
 
 
 ** Github
- * get/have one
- * access  [[https://github.com/LabNeuroCogDevel/allscripts]]
+ * get/access account
+ * view  [[https://github.com/LabNeuroCogDevel/allscripts]]
    - [[https://github.com/LabNeuroCogDevel/allscripts/blame/9c0ed3a0a7a117ea2d391f5f6005d65db1bea2dd/root/Volumes/Zeus/Maria/amyg_growth_chart/scripts/04b_allsub_invagexgroup.bash#L10][useful]]
  * fork and pull
 
@@ -44,8 +44,8 @@ git status / git log / git diff # insepect
     6. fast search (git grep)
 
    * useful for any development
-   * version control in shared storage is less exciting
-     i.e. better for between labs than within a lab.
+   * version control in shared storage is less exciting (re: trust)
+     i.e. collab. feats. better between labs than within a lab 
 
 
 ** What
@@ -124,13 +124,16 @@ git grep b              # search files for 'b'
 git log
 git diff HEAD~1
 git diff $checksum
+git blame my_file
+git grep "b"
 #+END_SRC
-** locally, thats it
+** locally, that's it
   * on Zeus, Hera, and Phillips, that's all there is.
   * be a code custodian
     - commit in meaningful units with useful messages
     - =git log= will help everyone figure out whats going on
     - =git diff= will explain changes
+    - [[https://github.com/LabNeuroCogDevel/allscripts/blame/9c0ed3a0a7a117ea2d391f5f6005d65db1bea2dd/root/Volumes/Zeus/Maria/amyg_growth_chart/scripts/04b_allsub_invagexgroup.bash#L10][e.g. finding change in script]]
 
 
 * Integration
@@ -138,7 +141,6 @@ git diff $checksum
 ** Generic
   * many editors have git support baked in (matlab, rstudio, vim, ...)
   * see atom
-  * Files within git repo have visual indications.
     [[./img/git_integration.png]]
 
 ** RStudio
@@ -160,21 +162,29 @@ git remote add origin remote $GITHUB_URL
 git push origin master
 #+END_SRC
 
+  5) post your repo url to slack #git
 
 ** Collaborating with strangers
 
 *** overview
     [[./img/whatthefork.jpg]]
   
-  collaborating with others on github
-   1) fork repo to make it your own
-   2) clone your own repo
-   3) make changes, commit, push
-   4) make a pull request
+    
+**** get code
+     1) find github/gitlab/bitbucket page
+     2) get clone repository URL
+     3) =git clone $REPO_URL=
+
+**** collaborating with others on github
+     1) fork repo to make it your own 
+     2) clone your own repo
+     3) make changes, commit, push
+     4) make a pull request
 
 
 *** Fork 
-    Awesome paper publishes code on github. There's a bug and we can fix it!
+    Awesome paper publishes code on github.
+    There's a bug and we can fix it!
 
   1) go to repo: github.com/$USER/$REPO
      - for now, get the repo from the person to your left
