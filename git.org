@@ -30,9 +30,8 @@ git status / git log / git diff # insepect
 ** Github
  * get/have one
  * access  [[https://github.com/LabNeuroCogDevel/allscripts]]
+   - [[https://github.com/LabNeuroCogDevel/allscripts/blame/9c0ed3a0a7a117ea2d391f5f6005d65db1bea2dd/root/Volumes/Zeus/Maria/amyg_growth_chart/scripts/04b_allsub_invagexgroup.bash#L10][useful]]
  * fork and pull
-***  TODO fix all scripts
-
 
 * Why
    1. It was working!? What happened! (git diff/log)
@@ -97,7 +96,7 @@ git config --global user.email "email@domain.com"
     7. view log
 ** looks like
 #+BEGIN_SRC bash
-test -r ~/src/git_demo && rm -r $_ # just for me
+test -r ~/src/git_demo && rm -rf $_ # just for me
 mkdir -p ~/src/git_demo  # be creative here
 cd $_                      
 # run git status after each command
@@ -130,6 +129,7 @@ git grep b              # search files for 'b'
 
 *** TODO rstudio
 
+
 * Github
  1) login or make an account on [[https://www.github.com][github.com]]
  2) confirm or request access to the  group [[https://www.github.com/LabNeuroCogDevel][github.com/LabNeuroCogDevel]]
@@ -137,46 +137,47 @@ git grep b              # search files for 'b'
  4) follow instructions to sync github to your code
 
 
-* Fork
-  [[./img/whatthefork.jpg]]
+** Fork
+   [[./img/whatthefork.jpg]]
   
-collaborating with others on github
- 1) fork repo to make it your own
- 2) clone your own repo
- 3) make changes, commit, push
- 4) make a pull request
+ collaborating with others on github
+  1) fork repo to make it your own
+  2) clone your own repo
+  3) make changes, commit, push
+  4) make a pull request
 
 
-* Pull someone else's code
-  Awesome paper publishes code on github. There's a bug and we can fix it!
+** Pull someone else's code
+   Awesome paper publishes code on github. There's a bug and we can fix it!
 
-1) go to repo: github.com/$USER/$REPO
-   - for now, get the repo from the person to your left
-   - or fork https://github.com/pbeukema/LabHacks
-   - or this: https://github.com/WillForan/git_demo
-2) click fork (N.B. not going to contribute? just clone -- no need to fork)
-3) clone your forked copy (git clone https://github.com/$USER/$REPO.git)
+ 1) go to repo: github.com/$USER/$REPO
+    - for now, get the repo from the person to your left
+    - or fork https://github.com/pbeukema/LabHacks
+    - or this: https://github.com/WillForan/git_demo
+ 2) click fork (N.B. not going to contribute? just clone -- no need to fork)
+ 3) clone your forked copy (git clone https://github.com/$USER/$REPO.git)
    
-[[./img/fork.png]]
-[[./img/github_clone.png]]
+ [[./img/fork.png]]
+ [[./img/github_clone.png]]
 
 
-* Send changes
-  When you want to send the orginal author your changes, you make a "pull request".
-  [[./img/pullRequest.png]]
+** Send changes
+   When you want to send the orginal author your changes, you make a "pull request".
+   [[./img/pullRequest.png]]
 
 *** TODO Finish
   
-* Hub
+    
+** Hub
 
-[[https://www.github.com/github/hub][hub]] makes this easier
-#+BEGIN_SRC 
-hub clone LabNeuroCogDevel/LabHacks
-cd LabHacks
-hub fork
-git add ... git commit 
-hub pull-request
-#+END_SRC
+ [[https://www.github.com/github/hub][hub]] makes this easier
+ #+BEGIN_SRC 
+ hub clone LabNeuroCogDevel/LabHacks
+ cd LabHacks
+ hub fork
+ git add ... git commit 
+ hub pull-request
+ #+END_SRC
 
 
 * Finer points
@@ -185,12 +186,15 @@ hub pull-request
   * .git/ folder
   * ssh keys for github
    
+
 * Resources
  (see wiki)
  * https://www.authorea.com/users/5990/articles/17489-a-quick-introduction-to-version-control-with-git-and-github/_show_article
  * https://berkeley-stat159-f17.github.io/stat159-f17/lectures/01-git/Git-Tutorial..html
  * https://try.github.io/
  * https://blogs.mathworks.com/community/2014/10/20/matlab-and-git/
+
+** TODO send out slack channel
 
 
 * Not git
@@ -201,19 +205,21 @@ hub pull-request
    * leuven theme
    * emamux:
      #+BEGIN_SRC elisp
-  (transient-mark-mode 1)
-  defun send-line ()
+  (defun send-line ()
    "Select the current line"
    (interactive)
-   (end-of-line) ; move to end of line
-   (set-mark (line-beginning-position))
-   ;(emamux:send-region)
+   (move-beginning-of-line nil)
+   (evil-visual-char)
+   (move-end-of-line nil)
+   (emamux:send-region (region-beginning) (region-end))
+   (evil-exit-visual-state)
+   (next-line 1)
   )
+
   (global-set-key (kbd "C-c s") 'send-line)
      
      #+END_SRC
 
-*** TODO Fix above code with evil-select?
 *** TODO test org-present, consider beamer export
 
 ** Deja vu
