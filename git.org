@@ -1,7 +1,17 @@
-* Git! Github!
-  2018 09 25
+#+TITLE: Git
+#+DATE: 2018-09-25
+#+OPTIONS:   toc:nil
+* Git
+  * noun
+     1. British Slang. a foolish or contemptible person.
+
+  * "goddamn idiotic truckload of shit" -- source code readme file
+     
+
 * Take Home
 ** Why use version control
+
+
 ** 4 Essentials (9 commands)
 have typed in and understood 
 #+BEGIN_SRC bash
@@ -11,16 +21,30 @@ git commit -m "change note"     # modify
 git push   / git pull           # interact
 git status / git log / git diff # insepect
 #+END_SRC
+
+
 ** Github accounts
  * get/have one
  * access  [[https://github.com/LabNeuroCogDevel/allscripts]]
+ * fork and pull
+
+
 * Why
-   1. It was working!? What happened!
-   2. Collaborate (identify conflicts and changes)
-   3. At home and now the scripts are 3 hops away
-   4. backup
+   1. It was working!? What happened! (git diff/log)
+   2. Collaborate, identify conflicts/changes (git diff/log)
+   3. Share. Reproduce. Reuse. (github, git clone)
+   4. At home and now the scripts are 3 hops away (github)
+   5. backup (git push)
+   6. fast search (git grep)
+
+  * version control in shared storage is less exciting
+    i.e. better for between labs than within a lab.
+
+
 * What
-  * (distributed) Version Control
+
+   (distributed) Version Control
+
 ** options: *git*, mercurial, fossil, darcs  [centralized: svn, csv]
 
    [[./img/vcs.png]]
@@ -29,20 +53,34 @@ git status / git log / git diff # insepect
 
 *** locally
     [[./img/local_status.png]]
+    
+
 *** online
     [[https://github.com/LabNeuroCogDevel/allscripts/commit/87eaa7f19b1821b7ae7f5c867974b9265d986730][github diff]]
     [[./img/githubdif.png]]
 
+
 * How
-** Git software (clients)
-  * git (command line interface)
-  * [[https://git-scm.com/download/gui/windows]]
+
 ** Workflow - take home part 2
    [[./img/workflow.png]]
 
    [[./img/workflow_table.png]]
+** Git software (clients)
+  * git (command line interface)
+  * [[https://git-scm.com/download/gui/windows]]
+
+
+* Setup
+
+  If you don't do this now, git will demand you do it later.
+  #+BEGIN_SRC bash
+git config --global user.name "First Last"
+git config --global user.email "email@domain.com"
+  #+END_SRC
+    
    
-* Do it
+* Make our own
 ** This
     1. open terminal
     2. make a new directory and init a git repo
@@ -54,7 +92,7 @@ git status / git log / git diff # insepect
 ** looks like
 #+BEGIN_SRC bash
 test -r ~/src/git_demo && rm -r $_ # just for me
-mkdir -p ~/src/git_demo
+mkdir -p ~/src/git_demo  # be creative here
 cd $_                      
 # run git status after each command
 git init                # start git repo
@@ -65,32 +103,96 @@ git add my_file         # stage file
 git commit              # stage to HEAD
 
 # round two - change a file
-sed -i 's/a/c/' my_file # modify a file
+sed -i -e 's/a/c/' my_file # modify a file
 git diff                # whats changed
 git add my_file         # stage file
 git commit              # stage to HEAD
 
 git log                 # history
+
+git grep b              # search files for 'b'
 #+END_SRC
+
+** locally, thats it
+ * on Zeus, Hera, and Phillips, that's all there is.
 
 
 * Github
- 1) login or make an account on [[github.com]]
- 2) confirm or request access to the [[github.com/LabNeuroCogDevel]] group
+ 1) login or make an account on [[https://www.github.com][github.com]]
+ 2) confirm or request access to the  group [[https://www.github.com/LabNeuroCogDevel][github.com/LabNeuroCogDevel]]
  3) create a new repo (for your demo above)
+ 4) follow insturctions to sync github to your code
+
+
+* Fork
+  [[./img/whatthefork.jpg]]
+  
+collaborating with others on github
+ 1) you fork repos to make them your own
+ 2) clone your own repo
+ 3) make changes, commit, push
+ 4) make a pull request
 
 * Pull someone else's code
+  Awesome paper publishes code on github. There's a bug and we can fix it!
+
+1) go to repo: github.com/$USER/$REPO
+   - for now, get the repo from the person to your left
+   - or fork https://github.com/pbeukema/LabHacks
+   - or this: https://github.com/WillForan/git_demo
+2) click fork (N.B. not going to contribute? just clone -- no need to fork)
+3) clone your forked copy (git clone https://github.com/$USER/$REPO.git)
+   
+[[./img/fork.png]]
+[[./img/github_clone.png]]
+
+
+* Send changes
+  When you want to send the orginal author your changes, you make a "pull request".
+  [[./img/pullRequest.png]]
+
+* Hub
+
+[[https://www.github.com/github/hub][hub]] makes this easier
+#+BEGIN_SRC 
+hub clone LabNeuroCogDevel/LabHacks
+cd LabHacks
+hub fork
+git add ... git commit 
+hub pull-request
+#+END_SRC
+
+* Finer points
+  * Make commit messages useful: https://gist.github.com/matthewhudson/1475276
+  * git does branching very well. ideal for experementing with radical code changes
+
 
 * Resources
  (see wiki)
  * https://www.authorea.com/users/5990/articles/17489-a-quick-introduction-to-version-control-with-git-and-github/_show_article
- * https://try.github.io/ 
+ * https://berkeley-stat159-f17.github.io/stat159-f17/lectures/01-git/Git-Tutorial..html
+ * https://try.github.io/
+
+
 * Not git
 
 ** Colophon
    emacs
    * org mode
    * leuven theme
+   * emamux:
+     #+BEGIN_SRC elisp
+  (transient-mark-mode 1)
+  defun send-line ()
+   "Select the current line"
+   (interactive)
+   (end-of-line) ; move to end of line
+   (set-mark (line-beginning-position))
+   ;(emamux:send-region)
+  )
+  (global-set-key (kbd "C-c s") 'send-line)
+     
+     #+END_SRC
 ** Deja vu
 
 [[/Volumes/L/bea_res/Luna/Journal mtg/2017-04-27_IT_WF.txt]]
